@@ -1,0 +1,6 @@
+name: PetZ
+version: '1.0.0'
+main: de.crazydev22.petz.PetZ
+api-version: '1.21'
+load: STARTUP
+authors: [ CrazyDev22 ]
