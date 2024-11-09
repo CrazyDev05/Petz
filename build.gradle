@@ -57,11 +57,10 @@ processResources {
 shadowJar {
     archiveClassifier = null
 
-    /*
-    relocate 'de.cubbossa.cliententities', 'de.crazydev22.petz.libs.cliententities'
-    relocate 'com.github.retrooper.packetevents', 'de.crazydev22.petz.libs.packetevents.api'
-    relocate 'io.github.retrooper.packetevents', 'de.crazydev22.petz.libs.packetevents.impl'
-     */
+    def libs = "de.crazydev22.petz.libs"
+    relocate 'de.cubbossa.cliententities', "${libs}.cliententities"
+    relocate 'com.github.retrooper.packetevents', "${libs}.packetevents.api"
+    relocate 'io.github.retrooper.packetevents', "${libs}.packetevents.impl"
 }
 
 runServer {

@@ -106,6 +106,17 @@ public final class Display implements Listener {
         data.remove();
     }
 
+    /**
+     * Set the display for a player.
+     * <p>
+     * This can be either a helmet or null.
+     * <p>
+     * The display is automatically set to be invisible and small.
+     *
+     * @param player the uuid of the player
+     * @param display the display to set, or null to remove
+     * @return this
+     */
     @Contract("_, _ -> this")
     public Display setDisplay(@NotNull UUID player, @Nullable ItemStack display) {
         var data = pets.get(player);
@@ -114,10 +125,21 @@ public final class Display implements Listener {
         return this;
     }
 
+    /**
+     * Returns whether the armor stand will rotate according to the player's view direction.
+     *
+     * @return the default value
+     */
     public boolean isRotateZ() {
         return rotateZ;
     }
 
+    /**
+     * Returns whether the armor stand will rotate according to the player's view direction.
+     *
+     * @param player the player to check
+     * @return whether the armor stand will rotate according to the player's view direction
+     */
     public boolean isRotateZ(@NotNull UUID player) {
         var data = pets.get(player);
         if (data == null)
@@ -125,6 +147,12 @@ public final class Display implements Listener {
         return data.rotateZ;
     }
 
+    /**
+     * Set whether the armor stand will rotate according to the player's view direction.
+     *
+     * @param rotateZ whether the armor stand will rotate according to the player's view direction
+     * @return this
+     */
     @Contract("_ -> this")
     public Display setRotateZ(boolean rotateZ) {
         pets.values().stream()
@@ -138,6 +166,13 @@ public final class Display implements Listener {
         return this;
     }
 
+    /**
+     * Set whether the armor stand will rotate according to the player's view direction.
+     *
+     * @param player the player to set
+     * @param rotateZ whether the armor stand will rotate according to the player's view direction
+     * @return this
+     */
     @Contract("_, _ -> this")
     public Display setRotateZ(@NotNull UUID player, boolean rotateZ) {
         var data = pets.get(player);
@@ -148,11 +183,22 @@ public final class Display implements Listener {
         return this;
     }
 
+    /**
+     * Returns the offset of the armor stand.
+     *
+     * @return the offset of the armor stand
+     */
     @NotNull
     public Vector getOffset() {
         return offset.clone();
     }
 
+    /**
+     * Set the offset of the armor stand.
+     *
+     * @param offset the offset of the armor stand
+     * @return this
+     */
     @Contract("_ -> this")
     public Display setOffset(@NotNull Vector offset) {
         pets.values().stream()
@@ -166,6 +212,13 @@ public final class Display implements Listener {
         return this;
     }
 
+    /**
+     * Sets the offset of the armor stand for the given player.
+     *
+     * @param player the uuid of the player
+     * @param offset the offset of the armor stand
+     * @return this
+     */
     @Contract("_, _ -> this")
     public Display setOffset(@NotNull UUID player, @NotNull Vector offset) {
         var data = pets.get(player);
@@ -176,6 +229,12 @@ public final class Display implements Listener {
         return this;
     }
 
+    /**
+     * Gets the offset of the armor stand for the given player.
+     *
+     * @param player the uuid of the player
+     * @return the offset of the armor stand, or null if the player is not in the pet map
+     */
     @Nullable
     public Vector getOffset(@NotNull UUID player) {
         var data = pets.get(player);

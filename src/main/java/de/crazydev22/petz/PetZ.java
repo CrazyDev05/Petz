@@ -1,11 +1,10 @@
 package de.crazydev22.petz;
 
 import org.bukkit.Bukkit;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-public final class PetZ extends JavaPlugin implements Listener {
+public final class PetZ extends JavaPlugin {
     private final Display display = new Display(this);
 
     @Override
@@ -16,7 +15,6 @@ public final class PetZ extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         display.enable();
-        getServer().getPluginManager().registerEvents(this, this);
 
         getServer().getScheduler().runTaskTimer(this, () -> {
             for (var player : Bukkit.getOnlinePlayers()) {
